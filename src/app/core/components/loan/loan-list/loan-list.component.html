@@ -1,0 +1,30 @@
+<div class="d-flex flex-column justify-content-center">
+    <label id="lbMessage" class="hide-element"></label>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Miembro</th>
+                <th>Biblioteca</th>
+                <th>Inicio</th>
+                <th>Fin</th>
+                <th>Libros</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+          @for (loan of loans(); track loan.id){
+            <tr>
+              <td>{{loan.memberFullName}}</td>
+              <td>{{loan.libraryName}}</td>
+              <td>{{loan.startDate | date: 'dd/MM/yyyy' }}</td>
+              <td>{{loan.endDate ? (loan.endDate | date: 'dd/MM/yyyy') : ''}}</td>
+              <td>{{loan.bookNames.length}}</td>
+              <td>
+                  <button class="btn btn-primary m-1" (click)="onEdit(loan.id)">Editar</button>
+                  <button class="btn btn-danger" (click)="onDelete(loan.id)">Eliminar</button>
+              </td>
+            </tr>
+          }
+        </tbody>
+    </table>
+</div>

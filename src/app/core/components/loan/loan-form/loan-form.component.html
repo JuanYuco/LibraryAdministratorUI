@@ -1,0 +1,39 @@
+<div class="d-flex flex-column">
+    <h4 class="align-self-center">{{ loan().id == 0 ? 'Crear ' : 'Editar ' }}Prestamo</h4>
+    <form Id="formCreateUser" class="w-100 d-flex flex-column align-self-center">
+        <div class="form-group w-100 mt-2">
+          <label>Miembro:</label>
+          <select [(ngModel)]="loan().memberId" name="memberId" class="form-control">
+            @for(member of members(); track member.id){
+              <option [value]="member.id">{{member.fullName}}</option>
+            }
+          </select>
+        </div>
+        <div class="form-group w-100 mt-2">
+          <label>Biblioteca:</label>
+          <select [(ngModel)]="loan().libraryId" name="libraryId" class="form-control" (ngModelChange)="getBooks()" [disabled]="loan().id != 0">
+            @for(library of libraries(); track library.id){
+              <option [ngValue]="library.id">{{library.name}}</option>
+            }
+          </select>
+        </div>
+        <div class="form-group w-100 mt-2">
+          <label>Libros:</label>
+          <select multiple [(ngModel)]="loan().booksIds" name="booksIds" class="form-control">
+            @for(book of books(); track book.id){
+              <option [value]="book.id">{{book.title}}</option>
+            }
+          </select>
+        </div>
+        <div class="form-group w-100">
+            <label>Inicio:</label>
+            <input [ngModel]="(loan().startDate | date:'yyyy-MM-dd')" (ngModelChange)="onStartDateChange($event)" name="startDate" class="form-control" type="date" />
+        </div>
+        <div class="form-group w-100 mt-2">
+            <label>Entrega:</label>
+            <input [ngModel]="loan().endDate ? (loan().endDate | date:'yyyy-MM-dd') : null" (ngModelChange)="onEndDateChange($event)" name="endDate" class="form-control" type="date" />
+        </div>
+        <button class="btn btn-secondary w-100 mt-2" (click)="onClean()">Limpiar</button>
+        <button class="btn btn-primary w-100 mt-2" (click)="onSubmitForm()">Guardar</button>
+    </form>
+</div>

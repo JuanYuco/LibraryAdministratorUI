@@ -1,0 +1,28 @@
+<div class="d-flex flex-column justify-content-center">
+    <label id="lbMessage" class="hide-element"></label>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Titulo</th>
+                <th>Autor</th>
+                <th>Género</th>
+                <th>Bibliotecas</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+          @for (book of books(); track book.id){
+            <tr>
+              <td>{{book.title}}</td>
+              <td>{{book.author}}</td>
+              <td>{{book.gender}}</td>
+              <td>{{book.librariesNames.length}}</td>
+              <td>
+                  <button class="btn btn-primary m-1" (click)="onEdit(book.id)">Editar</button>
+                  <button class="btn btn-danger" (click)="onDelete(book.id)">Eliminar</button>
+              </td>
+            </tr>
+          }
+        </tbody>
+    </table>
+</div>

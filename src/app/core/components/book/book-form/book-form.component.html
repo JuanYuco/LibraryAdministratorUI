@@ -1,0 +1,27 @@
+<div class="d-flex flex-column">
+    <h4 class="align-self-center">{{ book().id == 0 ? 'Crear ' : 'Editar ' }}Usuario</h4>
+    <form Id="formCreateUser" class="w-100 d-flex flex-column align-self-center">
+        <div class="form-group w-100">
+            <label>Título:</label>
+            <input [(ngModel)]="book().title" name="title" class="form-control" placeholder="Título" type="text" />
+        </div>
+        <div class="form-group w-100 mt-2">
+            <label>Autor:</label>
+            <input [(ngModel)]="book().author" name="author" class="form-control" placeholder="Autor" type="text" />
+        </div>
+        <div class="form-group w-100 mt-2">
+            <label>Género:</label>
+            <input [(ngModel)]="book().gender" name="gender" class="form-control" placeholder="Autor" type="text" />
+        </div>
+        <div class="form-group w-100 mt-2">
+            <label>Bibliotecas:</label>
+            <select multiple [(ngModel)]="book().librariesIds" name="librariesIds" class="form-control">
+              @for(library of libraries(); track library.id){
+                <option [value]="library.id">{{library.name}}</option>
+              }
+            </select>
+        </div>
+        <button class="btn btn-secondary w-100 mt-2" (click)="onClean()">Limpiar</button>
+        <button class="btn btn-primary w-100 mt-2" (click)="onSubmitForm()">Guardar</button>
+    </form>
+</div>

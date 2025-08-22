@@ -1,0 +1,28 @@
+<div class="d-flex flex-column justify-content-center">
+    <label id="lbMessage" class="hide-element"></label>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Celular</th>
+                <th>Email</th>
+                <th>Estado</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+          @for (member of members(); track member.id){
+            <tr>
+              <td>{{member.fullName}}</td>
+              <td>{{member.cellPhoneNumber}}</td>
+              <td>{{member.email}}</td>
+              <td>{{member.status}}</td>
+              <td>
+                  <button class="btn btn-primary m-1" (click)="onEdit(member.id)">Editar</button>
+                  <button class="btn btn-danger" (click)="onDelete(member.id)">Eliminar</button>
+              </td>
+            </tr>
+          }
+        </tbody>
+    </table>
+</div>

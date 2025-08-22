@@ -1,0 +1,19 @@
+<div class="d-flex flex-column align-items-center">
+    <h4>Libros</h4>
+    @if (errorMessage() != ''){
+      <label class="text-danger">{{errorMessage()}}</label>
+    }
+
+    @if (userMessage() != ''){
+      <label class="text-success">{{userMessage()}}</label>
+    }
+
+    <div class="col-md-12 col-12 d-flex flex-row">
+      <div class="col-md-8 p-2">
+        <app-book-list [books]="books()" (onDeleteOutPut)="onDelete($event)" (onEditOutPut)="onEdit($event)" />
+      </div>
+      <div class="col-md-4 p-2">
+        <app-book-form [book]="book()" (cleanForm)="onClean()" (submitForm)="onSave()"></app-book-form>
+      </div>
+    </div>
+</div>

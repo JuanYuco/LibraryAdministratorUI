@@ -1,0 +1,19 @@
+<div class="d-flex flex-column align-items-center">
+    <h4>Prestamos</h4>
+    @if (errorMessage() != ''){
+      <label class="text-danger">{{errorMessage()}}</label>
+    }
+
+    @if (userMessage() != ''){
+      <label class="text-success">{{userMessage()}}</label>
+    }
+
+    <div class="col-md-12 col-12 d-flex flex-row">
+      <div class="col-md-8 p-2">
+        <app-loan-list [loans]="loans()" (onDeleteOutPut)="onDelete($event)" (onEditOutPut)="onEdit($event)" />
+      </div>
+      <div class="col-md-4 p-2">
+        <app-loan-form [loan]="loan()"  (cleanForm)="onClean()" (submitForm)="onSave()" />
+      </div>
+    </div>
+</div>
