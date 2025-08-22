@@ -1,59 +1,9 @@
 # LibrariesAdministrator
+Para ejecutar la UI antes por favor descargue el backend y realice su respectiva configuración.
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.4.
-
-## Development server
-
-To start a local development server, run:
-
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+# Ejecución del Proyecto.
+1. Asegurarse de tener instalado Angular versión 19.2.14 o superior.
+2. Ejecutar el backend y obtener la url base del localHost.
+3. En el proyecto Angular ubique la carpeta "src/environments" dentro esta el archivo de nombre **environments**.
+4. Modifique el objeto **environment** especificamente la propiedad apiUrl, reemplazando el puerto por el del backend.
+5. Con la consola de comondos ubiquese dentro de la carpeta del proyecto Angular y ejecutelo con el comando **ng serve --open**
